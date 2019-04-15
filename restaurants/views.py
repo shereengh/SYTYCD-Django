@@ -56,13 +56,13 @@ def restaurant_list(request):
             Q(owner__username__icontains=query)
         ).distinct()
     context = {
-       "restaurants": restaurants
+       "rest_list": restaurants
     }
     return render(request, 'restaurant_list.html', context)
 
 
 def restaurant_detail(request, restaurant_id):
-    restaurant = Restaurant.objects.get(id=restaurant_id)
+    restaurant = Restaurant.objects.get(id=res_id)
     items = Item.objects.filter(restaurant=restaurant)
     context = {
         "restaurant": restaurant,
